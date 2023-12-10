@@ -151,8 +151,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                     <div class="navbar-profile">
-                        <img class="img-xs rounded-circle" src="{{asset('Admin/assets/images/faces/face15.jpg')}}" alt="">
-                        <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry Klein</p>
+                        <img class="img-xs rounded-circle" src="{{URL::asset('images/'. auth()->user()->image)}}" alt="">
+                        <p class="mb-0 d-none d-sm-block navbar-profile-name">{{auth()->user()->name}}</p>
                         <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                     </div>
                 </a>
