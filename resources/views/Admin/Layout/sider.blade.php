@@ -81,7 +81,7 @@
             </div>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="{{asset('Admin/pages/forms/basic_elements.html')}}">
+            <a class="nav-link" href="{{route('category.index')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -16,14 +17,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('User.User');
+    return view('auth.login');
 });
 
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::get('/index', [DashboardController::class,'index'])->middleware(['auth', 'verified']);
+
+Route::resource('category',CategoryController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
