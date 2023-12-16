@@ -85,15 +85,15 @@
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
-                <span class="menu-title">Form Elements</span>
+                <span class="menu-title">Category</span>
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="{{asset('Admin/pages/tables/basic-table.html')}}">
+            <a class="nav-link" href="{{route('product.index')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">Products</span>
             </a>
         </li>
         <li class="nav-item menu-items">

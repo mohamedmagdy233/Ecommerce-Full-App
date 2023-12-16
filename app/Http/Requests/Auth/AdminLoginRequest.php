@@ -29,6 +29,7 @@ class AdminLoginRequest extends FormRequest
 
     public function authenticate(): bool
     {
+
         $this->ensureIsNotRateLimited();
 
         $credentials = $this->only('email', 'password');

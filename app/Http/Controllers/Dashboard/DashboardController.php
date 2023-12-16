@@ -11,15 +11,6 @@ class DashboardController extends Controller
 {
    public function index(){
 
-       $user = Auth::id();
-       $FindUser=User::find($user);
-       $userType = $FindUser->userType;
-       if ($userType== 0){
 
-           return view('User.User');
-       }else{
-
-           return view('Admin.Dashboard');
-       }
    }
 }

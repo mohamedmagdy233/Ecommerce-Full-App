@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repository\category;
 
-use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Log;
-use PHPUnit\Framework\Constraint\GreaterThan;
+use function public_path;
+use function redirect;
+use function view;
 
 class CategoryRepository implements CategoryRepositoryInterface
 
@@ -47,6 +48,7 @@ class CategoryRepository implements CategoryRepositoryInterface
       try {
           $AddCategory=new  Category();
           $AddCategory->name=$request->name;
+          $AddCategory->discount=$request->discount;
           $AddCategory->description=$request->description;
           $AddCategory->image=$imageName;
           $AddCategory->save();
@@ -89,6 +91,7 @@ class CategoryRepository implements CategoryRepositoryInterface
       try {
           $updateCategory=Category::find($request->id);
           $updateCategory->name=$request->name;
+          $updateCategory->discount=$request->discount;
           $updateCategory->description=$request->description;
           $updateCategory->image=$imageName;
           $updateCategory->save();

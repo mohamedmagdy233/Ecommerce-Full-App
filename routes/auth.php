@@ -18,17 +18,18 @@ use Illuminate\Support\Facades\Route;
 
 //################################## Route User ##############################################
 
-Route::get('/login', [AuthenticatedSessionController::class, 'create'])->middleware('guest')->name('login');
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
 
-Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest')->name('login.user');
+Route::post('/login',[AuthenticatedSessionController::class, 'store'])->name('login.user');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout.user');
 
 //################################## Route Admin ##############################################
 
-Route::post('/login/admin', [AdminController::class, 'store'])->middleware('guest')->name('login.admin');
+Route::post('/login/admin', [AdminController::class, 'store'])->name('login.admin');
+//Route::post('/login/admin', function (){return 'd';})->name('login.admin');
 
-Route::post('/logout/admin', [AdminController::class, 'destroy'])->middleware('auth:admin')->name('logout.admin');
+Route::get('/logout/admin', [AdminController::class, 'destroy'])->middleware('auth:admin')->name('logout.admin');
 
 //#############################################################################################
 

@@ -10,6 +10,7 @@
     @include('User.Layout.slider')
 </div>
 
+
 @include('User.Layout.why')
 @include('User.Layout.arrival')
 @include('User.Layout.product')

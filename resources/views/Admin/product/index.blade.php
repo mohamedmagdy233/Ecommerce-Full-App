@@ -17,17 +17,26 @@
             <div class="content-wrapper">
 
                 <div class="card-body">
-                    <a href="{{route('category.create')}}" class="btn btn-light">Add Category</a>
+                    @if($categories > 0)
+                    <a href="{{route('product.create')}}"  class="btn btn-light">Add product</a>
+                    @else
+                        <div class="alert alert-warning" role="alert">
+                            <p class="mb-0"><strong>Note:</strong> You must add a category first.</p>
+                        </div>
+
+                    @endif
+
                     <hr>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
                             <tr>
                                 <th> # </th>
-                                <th>name</th>
-                                <th> description </th>
-                                <th> image </th>
-                                <th> discount </th>
+                                <th>code</th>
+                                <th> name </th>
+                                <th> price </th>
+                                <th> price after discount</th>
+                                <th> category </th>
                                 <th> actions </th>
                             </tr>
                             </thead>
@@ -36,25 +45,36 @@
                             $i=0;
                             $i++;
                             ?>
-                 @foreach($categories as $category)
+                 @foreach($products as $product)
+
+                     <?php
+
+                         $num1 =$product->price;
+                         $num2= $product->category->discount/100;
+                         $num3 = $num1 * $num2;
+
+
+
+
+                     ?>
 
                             <tr>
                                 <td>{{$i}}</td>
-                                <td> {{$category->name}} </td>
-                                <td> {{$category->description}} </td>
-                                <td> <img src="{{asset('categoriesImage/'.$category->image)}}"> </td>
+                                <td> {{$product->code}} </td>
+                                <td> {{$product->name}} </td>
+                                <td> {{number_format($product->price)}} EG </td>
+                                <td> {{number_format($num3)}} EG </td>
+                                <td> {{$product->category->name}} </td>
 
-                                <td> {{$category->discount}} %</td>
                                 <td>
-
-                                <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary">Edit</a>
+                                    <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary">Edit</a>
 {{--                                    <a href="{{route('category.destroy',$category->id)}}" class="btn btn-danger">X</a>--}}
                                     <a  class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">X</a>
                                 </td>
 
 
                             </tr>
-                     @include('Admin.category.delete')
+                     @include('Admin.product.delete')
                  @endforeach
                             </tbody>
                         </table>

@@ -13,6 +13,8 @@ class AdminController extends Controller
 
     public function store(AdminLoginRequest $request)
     {
+//        return $request;
+
         if($request->authenticate())
         {
             $request->session()->regenerate();

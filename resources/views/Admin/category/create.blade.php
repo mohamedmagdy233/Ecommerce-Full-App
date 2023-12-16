@@ -25,6 +25,10 @@
                             <label for="description">Description</label>
                             <textarea class="form-control" name="description" id="description"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="discount">discount</label>
+                            <input type="text" class="form-control" name="discount" id="discount" placeholder="Category discount">
+                        </div>
 
                         <div class="form-group">
                             <label for="image">image</label>

@@ -25,11 +25,37 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+
+
         $request->authenticate();
 
         $request->session()->regenerate();
 
         return redirect()->intended(RouteServiceProvider::HOME);
+////        $request->authenticate();
+////
+////        $request->session()->regenerate();
+////
+////        return redirect()->intended(RouteServiceProvider::HOME);
+//
+//
+//        // dd(Hash::make('mohamedashrafelbayoumi@gmail.com'));
+//        $credentials = $request->only('email', 'password');
+////         dd($credentials);
+//        // dd(Hash::make('admin@gmail.com'));
+//        // dd(Auth::guard('web')->attempt($credentials));
+//        if (Auth::guard('web')->attempt($credentials)) {
+//
+//            return redirect()->intended(RouteServiceProvider::HOME);
+//
+//        }
+//
+//        if (Auth::guard('admin')->attempt($credentials)) {
+//
+//            return redirect()->intended(RouteServiceProvider::ADMIN);
+//        }
+//
+//        return back()->withErrors(['email' => 'Invalid credentials']);
     }
 
     /**

@@ -22,6 +22,10 @@ class Admin extends Authenticatable
         'email',
         'password',
         'image',
+//        'provider',
+//        'provider_id',
+//        'provider_token'
+
     ];
 
     /**

@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
-use App\Models\Category;
-use App\Repository\CategoryRepository;
-use App\Repository\CategoryRepositoryInterface;
-use Illuminate\Http\Request;
+use App\Repository\category\CategoryRepositoryInterface;
 
 class CategoryController extends Controller
 {
