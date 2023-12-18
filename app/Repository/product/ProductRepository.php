@@ -38,11 +38,23 @@ class ProductRepository implements ProductRepositoryInterface
     public function store($request)
     {
 
+        $image=$request->image;
+        if ($image){
+
+            $imageName=time().'.'.$image->getClientOriginalExtension();
+            $image->move('products',$imageName);
+        }else{
+
+            $imageName='default.JPG';
+        }
+
         try {
             $storeProduct =new Product();
             $storeProduct->name = $request->name;
             $storeProduct->code = $request->code;
             $storeProduct->price = $request->price;
+            $storeProduct->quantity=$request->quantity;
+            $storeProduct->image = $imageName;
             $storeProduct->category_id = $request->category;
             $storeProduct->save();
             return redirect()->route('product.index');
@@ -72,11 +84,22 @@ class ProductRepository implements ProductRepositoryInterface
 
 //        return $request;
 
+        $image=$request->image;
+        if ($image){
+
+            $imageName=time().'.'.$image->getClientOriginalExtension();
+            $image->move('products',$imageName);
+        }else{
+
+            $imageName='default.JPG';
+        }
+
 //        try {
 
             $updateProduct =Product::find($request->id);
             $updateProduct->name = $request->name;
             $updateProduct->price = $request->price;
+            $updateProduct->image = $imageName;
             $updateProduct->category_id = $request->category_id;
             $updateProduct->save();
 
@@ -96,7 +119,10 @@ class ProductRepository implements ProductRepositoryInterface
     {
         try {
 
+
             $deleteProduct=Product::find($request->id);
+            $imagePath = public_path('products/' . $deleteProduct->image);
+            unlink($imagePath);
 
 
             $deleteProduct->delete();

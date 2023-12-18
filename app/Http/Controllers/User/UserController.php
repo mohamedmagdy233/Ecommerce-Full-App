@@ -35,8 +35,10 @@ class UserController extends Controller
 
     public function show(string $id)
     {
-       return $id;
+        return $this->users->show($id);
     }
+
+
 
 
     public function edit(string $id)

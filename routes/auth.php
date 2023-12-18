@@ -26,7 +26,7 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->midd
 
 //################################## Route Admin ##############################################
 
-Route::post('/login/admin', [AdminController::class, 'store'])->name('login.admin');
+Route::post('/login/admin', [AdminController::class, 'store'])->middleware('guest')->name('login.admin');
 //Route::post('/login/admin', function (){return 'd';})->name('login.admin');
 
 Route::get('/logout/admin', [AdminController::class, 'destroy'])->middleware('auth:admin')->name('logout.admin');

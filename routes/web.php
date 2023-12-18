@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,8 @@ Route::get('/', function () {
 
 
 Route::get('/index', [DashboardController::class,'index'])->middleware(['auth', 'verified']);
-Route::get('user/show/{id}', [UserController::class, 'show']);
+Route::get('user-show/{id}',[UserController::class,'show'])->name('user_show');
+Route::resource('order',OrderController::class);
 
 
 Route::resource('category',CategoryController::class);

@@ -17,8 +17,23 @@ class UserRepository implements UserRepositoryInterface
         return view('User.User',compact('categories','products'));
 
     }catch (QueryException $queryException) {
-      Log::error('Database query failed: ' . $queryException->getMessage());
-}
+            Log::error('Database query failed: ' . $queryException->getMessage());
+        }
     }
+
+    public function show($id)
+    {
+
+        try {
+
+            $products=Product::where('category_id',$id)->get();
+            return view('User.show-products',compact('products'));
+
+
+
+        }catch (QueryException $queryException) {
+            Log::error('Database query failed: ' . $queryException->getMessage());
+    }
+       }
 
 }

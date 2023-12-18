@@ -13,7 +13,7 @@
 
                     <div class="option_container">
                         <div class="options">
-                            <a href="{{ url('user/show', $category->id) }}" class="option2">
+                            <a href="{{ route('user_show', $category->id) }}" class="option2">
                                 show products
                             </a>
 
@@ -27,7 +27,7 @@
                             {{$category->name}}
                         </h5>
                         <h6>
-                           {{$category->discount}} EG
+                           {{$category->discount}} %
 
                         </h6>
                     </div>
@@ -47,3 +47,4 @@
     </div>
     </div>
 </section>
+

@@ -37,6 +37,7 @@
                                 <th> price </th>
                                 <th> price after discount</th>
                                 <th> category </th>
+                                <th> image </th>
                                 <th> actions </th>
                             </tr>
                             </thead>
@@ -65,6 +66,7 @@
                                 <td> {{number_format($product->price)}} EG </td>
                                 <td> {{number_format($num3)}} EG </td>
                                 <td> {{$product->category->name}} </td>
+                                <td> <img  src="{{asset('products/'.$product->image)}}" ></td>
 
                                 <td>
                                     <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary">Edit</a>

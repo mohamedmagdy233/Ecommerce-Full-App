@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
             'name'=>'mohammed',
             'email'=>'admin@gmail.com',
             'image'=>'1702152472.png',
-            'password' =>Hash::make('password'),
+            'password' =>Hash::make('admin@gmail.com'),
 
         ]);
     }

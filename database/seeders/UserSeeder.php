@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
            'name'=>'mohammed',
            'email'=>'user@gmail.com',
            'image'=>'1702152472.png',
-           'password' =>Hash::make('password'),
+           'password' =>Hash::make('user@gmail.com'),
 
        ]);
     }

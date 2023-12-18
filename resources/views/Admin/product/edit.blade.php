@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Edit Category Form</h4>
 
-                    <form  action="{{route('product.update',$product->id)}}" class="forms-sample" method="POST"  >
+                    <form  action="{{route('product.update',$product->id)}}" class="forms-sample" method="POST"  enctype="multipart/form-data" >
                         @method('PUT')
                         @csrf
                         <input type="hidden" value="{{$product->id}}" name="id">
@@ -33,6 +33,21 @@
                             <label for="price">price</label>
                             <input type="text" class="form-control" name="price" id="price" value="{{$product->price}}" >
                         </div>
+                        <div class="form-group">
+                            <label for="quantity">quantity</label>
+                            <input type="number" class="form-control" name="quantity" value="{{$product->quantity}}" id="quantity" >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">Old image</label>
+                            <img width="50" height="50" src="{{asset('products/'.$product->image)}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">Update image</label>
+                            <input class="form-control" type="file" name="image" id="description">
+                        </div>
+
 
 
                         <div class="form-group">
